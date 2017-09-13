@@ -14,7 +14,7 @@ public class TestApi {
 
     @Test
     public void test_api() throws IOException {
-        initProxy();
+        
         Currencies currencies = new Currencies();
 
         currencies.refreshData();
@@ -48,38 +48,5 @@ public class TestApi {
 
             TimeUnit.MINUTES.sleep(1);
         }
-    }
-
-    private static void initProxy() {
-        System.setProperty("http.proxyHost", "vsgbc.cattolica.gca.net");
-        System.setProperty("http.proxyPort", "8080");
-        // settings proxy credentials
-        System.setProperty("http.proxyUser", "Cattolica\\VallicellaD");
-        System.setProperty("http.proxyPassword", "Cattolica18");
-
-        System.setProperty("https.proxyHost", "vsgbc.cattolica.gca.net");
-        System.setProperty("https.proxyPort", "8080");
-        // settings proxy credentials
-        System.setProperty("https.proxyUser", "Cattolica\\VallicellaD");
-        System.setProperty("https.proxyPassword", "Cattolica18");
-
-        Authenticator.setDefault(new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                if (getRequestorType() == RequestorType.PROXY) {
-                    String prot = getRequestingProtocol().toLowerCase();
-                    String host = System.getProperty(prot + ".proxyHost", "");
-                    String port = System.getProperty(prot + ".proxyPort", "80");
-                    String user = System.getProperty(prot + ".proxyUser", "");
-                    String password = System.getProperty(prot + ".proxyPassword", "");
-                    if (getRequestingHost().equalsIgnoreCase(host)) {
-                        if (Integer.parseInt(port) == getRequestingPort()) {
-                            return new PasswordAuthentication(user, password.toCharArray());
-                        }
-                    }
-                }
-                return null;
-            }
-        });
     }
 }
