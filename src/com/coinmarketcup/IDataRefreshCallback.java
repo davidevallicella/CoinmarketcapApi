@@ -1,7 +1,7 @@
 package com.coinmarketcup;
 
 /**
- * Created by grege on 07.08.2017.
+ * Created by Davide Vallicella on 07.08.2017.
  */
 
 public interface IDataRefreshCallback {

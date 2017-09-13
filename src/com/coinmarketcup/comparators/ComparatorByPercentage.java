@@ -5,7 +5,7 @@ import com.coinmarketcup.models.Currency;
 import java.util.Comparator;
 
 /**
- * Created by grege on 05.08.2017.
+ * Created by Davide Vallicella on 05.08.2017.
  */
 
 public class ComparatorByPercentage implements Comparator<Currency> {

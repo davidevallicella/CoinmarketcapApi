@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by grege on 05.08.2017.
+ * Created by Davide Vallicella on 05.08.2017.
  */
 
 public class Currencies {
